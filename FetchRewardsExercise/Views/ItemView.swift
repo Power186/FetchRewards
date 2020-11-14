@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ItemView: View {
-    @ObservedObject var itemPresenter = ItemPresenter()
+    @StateObject var itemPresenter = ItemPresenter()
     
     var body: some View {
         
         NavigationView {
             List {
-                ForEach(itemPresenter.items.sorted()) { item in
+                ForEach(itemPresenter.items) { item in
                     switch item.listId {
                     case 1:
                         Section(header: Text("Group 1")) {

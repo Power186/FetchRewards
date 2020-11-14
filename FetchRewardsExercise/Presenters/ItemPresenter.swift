@@ -20,10 +20,13 @@ final class ItemPresenter: ObservableObject {
                     listId: $0["listId"].intValue,
                     name: $0["name"].stringValue)
             }
-            self.items = itemModels
+            
+            let sortedItems = itemModels.sorted()
+            self.items = sortedItems
             
         } else {
-            print("network request returned nil")
+            assert(!items.isEmpty, "items array is empty")
         }
     }
 }
+
